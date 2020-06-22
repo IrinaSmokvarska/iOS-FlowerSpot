@@ -10,7 +10,7 @@ import UIKit
 import PovioKit
 
 class HomeContentView: UIView {
-  let collectionViewDimensions = FlowerCollectionViewItemDimenson(numberOfItemsInRow: 2, insets: 8)
+  let collectionViewDimensions = FlowerCollectionViewItemDimension(numberOfItemsInRow: 2, insets: 8)
   let headerViewHeight: CGFloat = 255
   let headerView = HomeHeaderView.autolayoutView()
   let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).autolayoutView()

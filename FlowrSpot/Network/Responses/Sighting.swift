@@ -12,12 +12,12 @@ struct Sighting: Codable {
     let id: Int
     let name: String
     let description: String
-    let picture: Int
+    let picture: String
     let likesCount: Int
     let commentsCount: Int
     let createdAt: String
-    let latitude: String
-    let longitude: String
+    let latitude: Double
+    let longitude: Double
     let user: User
     let flower: FlowerSighting
 }

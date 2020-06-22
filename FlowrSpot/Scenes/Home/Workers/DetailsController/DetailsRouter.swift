@@ -21,7 +21,6 @@ class DetailsRouter {
     weak var delegate: DetailsRouterDelegate?
 }
 
-
 // MARK: - Routing Logic
 extension DetailsRouter: DetailsRoutingLogic {
   func navigateToAlert(title: String, message: String, handler: (() -> Void)?) {

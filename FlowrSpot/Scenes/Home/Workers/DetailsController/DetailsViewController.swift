@@ -10,8 +10,9 @@ import PovioKit
 import SnapKit
 
 protocol DetailsDisplayLogic: class {
-  func displayFlower(_ flower: Flower)
-  func displayError(_ error: RemoteResourceError)
+    func displayFlower(_ flower: Flower)
+    func displaySightings(_ sightings: [Sighting])
+    func displayError(_ error: RemoteResourceError)
 }
 
 class DetailsViewController: UIViewController {
@@ -55,6 +56,10 @@ extension DetailsViewController: DetailsDisplayLogic {
         router?.navigateToAlert(title: "general_error".localized(), message: error.localizedDescription, handler: nil)
         contentView.emptyView.isHidden = false
     }
+    
+    func displaySightings(_ sightings: [Sighting]) {
+        
+    }
 }
 
 // MARK: - UIScrollView Delegate
@@ -84,6 +89,7 @@ private extension DetailsViewController {
   
   func loadData() {
     interactor?.fetchFlowerDetails(flowerId: 10)
+    interactor?.fetchSightings(flowerId: 2)
   }
   
   @objc func leftBarButtonPressed() {

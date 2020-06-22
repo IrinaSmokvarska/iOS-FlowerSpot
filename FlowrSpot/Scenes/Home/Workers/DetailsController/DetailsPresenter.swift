@@ -10,6 +10,7 @@ import Foundation
 
 protocol DetailsPresentationLogic {
     func presentFlowerDetails(_ flower: Flower)
+    func presentSightings(_ sightings: [Sighting])
     func presentFlowerDetailError(_ error: RemoteResourceError)
 }
 
@@ -19,11 +20,15 @@ class DetailsPresenter {
 
 // MARK: - Presentation Logic
 extension DetailsPresenter: DetailsPresentationLogic {
-  func presentFlowerDetails(_ flower: Flower) {
-    viewController?.displayFlower(flower)
-  }
+    func presentFlowerDetails(_ flower: Flower) {
+        viewController?.displayFlower(flower)
+    }
   
-  func presentFlowerDetailError(_ error: RemoteResourceError) {
-    viewController?.displayError(error)
-  }
+    func presentFlowerDetailError(_ error: RemoteResourceError) {
+        viewController?.displayError(error)
+    }
+    
+    func presentSightings(_ sightings: [Sighting]) {
+        
+    }
 }

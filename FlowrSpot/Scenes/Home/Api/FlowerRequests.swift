@@ -20,7 +20,7 @@ enum FlowerRequests: Request {
     case let .flowerDetails(id):
       return "flowers/\(String(id))"
     case let .flowerSightings(id):
-        return "flowerSightings/\(String(id))"
+        return "flowers/\(String(id))/sightings"
     }
   }
 }
