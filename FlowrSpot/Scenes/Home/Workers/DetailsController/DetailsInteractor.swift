@@ -20,8 +20,8 @@ class DetailsInteractor {
 // MARK: - Business Logic
 extension DetailsInteractor: DetailsBusinessLogic {
     func fetchFlowerDetails(flowerId: Int) {
-        getFlowerDetailsWorker.execute(flowerId: flowerId, success: { (flower) in
-            self.presenter?.presentFlowerDetails(flower)
+        getFlowerDetailsWorker.execute(flowerId: flowerId, success: { (flowerDetails) in
+            self.presenter?.presentFlowerDetails(flowerDetails.flower)
         }) { error in
             self.presenter?.presentFlowerDetailError(error)
         }

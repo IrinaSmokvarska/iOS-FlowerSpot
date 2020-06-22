@@ -23,7 +23,7 @@ extension FlowersDownloader {
     }, failure: failure)
   }
   
-  func fetchFlowerDetails(flowerId: Int, success: RestClient.SuccessCompletion<Flower>, failure: RestClient.FailureCompletion) {
-    restClient.request(Flower.self, FlowerRequests.flowerDetails(flowerid: flowerId), version: .v1, success: success, failure: failure)
+  func fetchFlowerDetails(flowerId: Int, success: RestClient.SuccessCompletion<FlowerDetails>, failure: RestClient.FailureCompletion) {
+    restClient.request(FlowerDetails.self, FlowerRequests.flowerDetails(flowerid: flowerId), version: .v1, success: success, failure: failure)
   }
 }

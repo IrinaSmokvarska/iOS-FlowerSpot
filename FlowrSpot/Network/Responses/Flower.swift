@@ -6,6 +6,10 @@
 //  Copyright © 2018 PovioLabs. All rights reserved.
 //
 
+struct FlowerDetails: Codable {
+    let flower: Flower
+}
+
 struct Flower: Codable {
   let id: Int
   let name: String

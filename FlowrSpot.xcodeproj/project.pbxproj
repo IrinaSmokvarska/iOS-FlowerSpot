@@ -74,6 +74,11 @@
 		CEB1770424A124A600EB7CEF /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1770324A124A600EB7CEF /* DetailsViewController.swift */; };
 		CEB1770624A127A400EB7CEF /* DetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1770524A127A400EB7CEF /* DetailsRouter.swift */; };
 		CEB1770A24A12CC600EB7CEF /* FlowerDetailsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1770924A12CC600EB7CEF /* FlowerDetailsDataSource.swift */; };
+		CEB1770C24A130F400EB7CEF /* FlowerDetailsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1770B24A130F400EB7CEF /* FlowerDetailsContentView.swift */; };
+		CEB1771224A132AB00EB7CEF /* DetailsCollectionViewItemDimension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1771124A132AB00EB7CEF /* DetailsCollectionViewItemDimension.swift */; };
+		CEB1771424A1347800EB7CEF /* FlowerDetailsHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1771324A1347800EB7CEF /* FlowerDetailsHeaderView.swift */; };
+		CEB1771824A1603F00EB7CEF /* Sighting.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1771724A1603F00EB7CEF /* Sighting.swift */; };
+		CEB1771A24A165B600EB7CEF /* SightingDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1771924A165B600EB7CEF /* SightingDownloader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,8 +136,8 @@
 		37B41972200E06C700173B80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37B41977200E06C700173B80 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		37B4197C200E06C700173B80 /* FlowrSpotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlowrSpotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		37DFD3242011E41C001023ED /* HomeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeHeaderView.swift; path = FlowrSpot/Scenes/Home/Views/HomeHeaderView.swift; sourceTree = SOURCE_ROOT; };
-		37DFD3252011E41C001023ED /* FlowerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlowerCollectionViewCell.swift; path = FlowrSpot/Scenes/Home/Views/FlowerCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
+		37DFD3242011E41C001023ED /* HomeHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeHeaderView.swift; path = FlowrSpot/Scenes/Home/Views/HomeViews/HomeHeaderView.swift; sourceTree = SOURCE_ROOT; };
+		37DFD3252011E41C001023ED /* FlowerCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FlowerCollectionViewCell.swift; path = FlowrSpot/Scenes/Home/Views/HomeViews/FlowerCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		37DFD3332011E48D001023ED /* UIFont+Extra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extra.swift"; sourceTree = "<group>"; };
 		37DFD3362011E48D001023ED /* UIColor+Extra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extra.swift"; sourceTree = "<group>"; };
 		37DFD3452011E63C001023ED /* ItemDimenson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemDimenson.swift; sourceTree = "<group>"; };
@@ -164,6 +169,11 @@
 		CEB1770324A124A600EB7CEF /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		CEB1770524A127A400EB7CEF /* DetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsRouter.swift; sourceTree = "<group>"; };
 		CEB1770924A12CC600EB7CEF /* FlowerDetailsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerDetailsDataSource.swift; sourceTree = "<group>"; };
+		CEB1770B24A130F400EB7CEF /* FlowerDetailsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerDetailsContentView.swift; sourceTree = "<group>"; };
+		CEB1771124A132AB00EB7CEF /* DetailsCollectionViewItemDimension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsCollectionViewItemDimension.swift; sourceTree = "<group>"; };
+		CEB1771324A1347800EB7CEF /* FlowerDetailsHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerDetailsHeaderView.swift; sourceTree = "<group>"; };
+		CEB1771724A1603F00EB7CEF /* Sighting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sighting.swift; sourceTree = "<group>"; };
+		CEB1771924A165B600EB7CEF /* SightingDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingDownloader.swift; sourceTree = "<group>"; };
 		D7A200E65319AC91FE1C765B /* Pods-FlowrSpot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowrSpot.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlowrSpot/Pods-FlowrSpot.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -318,6 +328,7 @@
 			children = (
 				3787E6482015D3E90080A599 /* Flower.swift */,
 				370F3B8621CB9FFC00C53C85 /* FlowersContainer.swift */,
+				CEB1771724A1603F00EB7CEF /* Sighting.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -364,9 +375,8 @@
 		378E922422B0E21B008C06F0 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				37DFD3252011E41C001023ED /* FlowerCollectionViewCell.swift */,
-				378E922522B0E227008C06F0 /* HomeContentView.swift */,
-				37DFD3242011E41C001023ED /* HomeHeaderView.swift */,
+				CEB1770E24A1310300EB7CEF /* FlowerDetailsViews */,
+				CEB1770D24A130F900EB7CEF /* HomeViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -440,6 +450,7 @@
 		37F6090E2012220200087B53 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				CEB1771124A132AB00EB7CEF /* DetailsCollectionViewItemDimension.swift */,
 				37F6090F2012220200087B53 /* FlowerCollectionViewItemDimenson.swift */,
 			);
 			path = Utils;
@@ -456,10 +467,10 @@
 		37F609142012220200087B53 /* Workers */ = {
 			isa = PBXGroup;
 			children = (
-				37F609152012220200087B53 /* GetFlowersWorker.swift */,
-				CEB176FB24A1211200EB7CEF /* GetFlowerDetailsWorker.swift */,
 				CEB176FE24A1239C00EB7CEF /* DetailsController */,
 				CEB176FD24A1237B00EB7CEF /* HomeController */,
+				CEB176FB24A1211200EB7CEF /* GetFlowerDetailsWorker.swift */,
+				37F609152012220200087B53 /* GetFlowersWorker.swift */,
 			);
 			path = Workers;
 			sourceTree = "<group>";
@@ -552,6 +563,7 @@
 			isa = PBXGroup;
 			children = (
 				3787E64F2015D3E90080A599 /* FlowersDownloader.swift */,
+				CEB1771924A165B600EB7CEF /* SightingDownloader.swift */,
 			);
 			path = Downloaders;
 			sourceTree = "<group>";
@@ -614,6 +626,25 @@
 				CEB1770924A12CC600EB7CEF /* FlowerDetailsDataSource.swift */,
 			);
 			path = FlowerDetailsDataSource;
+			sourceTree = "<group>";
+		};
+		CEB1770D24A130F900EB7CEF /* HomeViews */ = {
+			isa = PBXGroup;
+			children = (
+				37DFD3252011E41C001023ED /* FlowerCollectionViewCell.swift */,
+				378E922522B0E227008C06F0 /* HomeContentView.swift */,
+				37DFD3242011E41C001023ED /* HomeHeaderView.swift */,
+			);
+			path = HomeViews;
+			sourceTree = "<group>";
+		};
+		CEB1770E24A1310300EB7CEF /* FlowerDetailsViews */ = {
+			isa = PBXGroup;
+			children = (
+				CEB1770B24A130F400EB7CEF /* FlowerDetailsContentView.swift */,
+				CEB1771324A1347800EB7CEF /* FlowerDetailsHeaderView.swift */,
+			);
+			path = FlowerDetailsViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -855,28 +886,33 @@
 				37B4196C200E06C600173B80 /* AppDelegate.swift in Sources */,
 				3787E6412015D1420080A599 /* Constants.swift in Sources */,
 				37603CEA2010975700FB9F78 /* DataSource.swift in Sources */,
+				CEB1771224A132AB00EB7CEF /* DetailsCollectionViewItemDimension.swift in Sources */,
+				CEB1770024A123C700EB7CEF /* DetailsInteractor.swift in Sources */,
+				CEB1770224A1241700EB7CEF /* DetailsPresenter.swift in Sources */,
+				CEB1770624A127A400EB7CEF /* DetailsRouter.swift in Sources */,
+				CEB1770424A124A600EB7CEF /* DetailsViewController.swift in Sources */,
 				373597C8201B2D570000CA57 /* EmptyView.swift in Sources */,
 				3787E6542015D3E90080A599 /* Flower.swift in Sources */,
 				37DFD3292011E41C001023ED /* FlowerCollectionViewCell.swift in Sources */,
 				37F6091A2012220200087B53 /* FlowerCollectionViewItemDimenson.swift in Sources */,
-				CEB1770224A1241700EB7CEF /* DetailsPresenter.swift in Sources */,
+				CEB1770C24A130F400EB7CEF /* FlowerDetailsContentView.swift in Sources */,
+				CEB1770A24A12CC600EB7CEF /* FlowerDetailsDataSource.swift in Sources */,
+				CEB1771424A1347800EB7CEF /* FlowerDetailsHeaderView.swift in Sources */,
 				37F6091D2012220200087B53 /* FlowerRequests.swift in Sources */,
 				370F3B8721CB9FFC00C53C85 /* FlowersContainer.swift in Sources */,
 				37F609182012220200087B53 /* FlowersDataSource.swift in Sources */,
 				3787E6592015D3E90080A599 /* FlowersDownloader.swift in Sources */,
 				37F609242012226600087B53 /* FlowersRow.swift in Sources */,
-				CEB1770424A124A600EB7CEF /* DetailsViewController.swift in Sources */,
 				37F609232012226600087B53 /* FlowersSection.swift in Sources */,
+				CEB176FC24A1211200EB7CEF /* GetFlowerDetailsWorker.swift in Sources */,
 				37F6091E2012220200087B53 /* GetFlowersWorker.swift in Sources */,
 				378E922622B0E227008C06F0 /* HomeContentView.swift in Sources */,
 				37DFD3282011E41C001023ED /* HomeHeaderView.swift in Sources */,
 				37F609192012220200087B53 /* HomeInteractor.swift in Sources */,
 				37F609202012220200087B53 /* HomePresenter.swift in Sources */,
 				37F6091C2012220200087B53 /* HomeRouter.swift in Sources */,
-				CEB1770024A123C700EB7CEF /* DetailsInteractor.swift in Sources */,
 				37F6091B2012220200087B53 /* HomeViewController.swift in Sources */,
 				3787E6582015D3E90080A599 /* Host.swift in Sources */,
-				CEB1770A24A12CC600EB7CEF /* FlowerDetailsDataSource.swift in Sources */,
 				37DFD3462011E63C001023ED /* ItemDimenson.swift in Sources */,
 				372B953022B0D36400B304B3 /* JSONDecoder+Extra.swift in Sources */,
 				37892D80200F38A600BB8259 /* NavigationViewController.swift in Sources */,
@@ -884,13 +920,13 @@
 				3787E6562015D3E90080A599 /* Request.swift in Sources */,
 				3787E6572015D3E90080A599 /* RestClient.swift in Sources */,
 				37DFD34E2011E817001023ED /* RootTabViewController.swift in Sources */,
-				CEB1770624A127A400EB7CEF /* DetailsRouter.swift in Sources */,
 				37603CEE2010977F00FB9F78 /* RowType.swift in Sources */,
 				99EF39B922E7202D001230BD /* SearchView.swift in Sources */,
 				37603CEC2010977100FB9F78 /* SectionType.swift in Sources */,
+				CEB1771824A1603F00EB7CEF /* Sighting.swift in Sources */,
+				CEB1771A24A165B600EB7CEF /* SightingDownloader.swift in Sources */,
 				37DFD33C2011E48D001023ED /* UIColor+Extra.swift in Sources */,
 				37DFD3392011E48D001023ED /* UIFont+Extra.swift in Sources */,
-				CEB176FC24A1211200EB7CEF /* GetFlowerDetailsWorker.swift in Sources */,
 				3787E6552015D3E90080A599 /* Version.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

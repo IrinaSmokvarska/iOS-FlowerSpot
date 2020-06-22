@@ -25,8 +25,8 @@ class HomeRouter {
 // MARK: - Routing Logic
 extension HomeRouter: HomeRoutingLogic {
   func navigateToFlowerDetails(flower: Flower) {
-    
-    // TODO: - Implement me
+    let detailsViewController = DetailsViewController(delegate: nil)
+    viewController?.navigationController?.pushViewController(detailsViewController, animated: true)
   }
   
   func navigateToAlert(title: String, message: String, handler: (() -> Void)?) {
