@@ -8,12 +8,16 @@
 
 import UIKit
 import SnapKit
+import Kingfisher
 
 class FlowerDetailsHeaderView: UIView {
     private let backgroundImageView = UIImageView.autolayoutView()
+    private let sightingsIcon = UIImageView.autolayoutView()
     private let titleLabel = UILabel.autolayoutView()
     private let subtitleLabel = UILabel.autolayoutView()
     private let addNewSightingButton = UIButton.autolayoutView()
+    private let sightingsHolderView = UIView.autolayoutView()
+    private let sightingsLabel = UILabel.autolayoutView()
     
     override init(frame: CGRect) {
       super.init(frame: frame)
@@ -32,6 +36,7 @@ private extension FlowerDetailsHeaderView {
         setupBackgroundImageView()
         setupTitleLabel()
         setupSubtitleLabel()
+        setupSightingButton()
     }
     
     func setupBackgroundImageView() {
@@ -39,37 +44,71 @@ private extension FlowerDetailsHeaderView {
       backgroundImageView.image = UIImage(named: "flowerPlaceholder")
       backgroundImageView.contentMode = .scaleAspectFill
       backgroundImageView.snp.makeConstraints {
-        $0.top.left.right.bottom.equalToSuperview()
+        $0.left.right.equalToSuperview()
+        $0.height.equalTo(351)
       }
     }
     
     func setupTitleLabel() {
       addSubview(titleLabel)
-      titleLabel.font = .custom(type: .regular, size: 24)
+      titleLabel.font = .custom(type: .light, size: 35)
       titleLabel.textColor = .white
-      titleLabel.textAlignment = .center
+      titleLabel.textAlignment = .left
       titleLabel.numberOfLines = 0
-      titleLabel.text = "home_title".localized()
       titleLabel.snp.makeConstraints {
-        $0.top.equalTo(60)
-        $0.left.equalTo(20)
-        $0.right.equalTo(-20)
+        $0.left.equalToSuperview().offset(23)
+        $0.right.lessThanOrEqualToSuperview().offset(-23)
+        $0.bottom.equalTo(subtitleLabel.snp.top).offset(-15)
       }
     }
     
     func setupSubtitleLabel() {
       addSubview(subtitleLabel)
-      subtitleLabel.font = .custom(type: .light, size: 12)
-      subtitleLabel.textAlignment = .center
+      subtitleLabel.font = .custom(type: .light, size: 14)
+      subtitleLabel.textAlignment = .left
       subtitleLabel.numberOfLines = 0
       subtitleLabel.alpha = 0.7
       subtitleLabel.textColor = .white
-      subtitleLabel.text = "home_subtitle".localized()
       subtitleLabel.snp.makeConstraints {
-        $0.left.equalTo(20)
-        $0.right.equalTo(-20)
-        $0.centerX.equalToSuperview()
-        $0.top.equalTo(titleLabel.snp.bottom).offset(20)
+        $0.left.equalToSuperview().offset(23)
+        $0.right.lessThanOrEqualToSuperview().offset(-23)
+        $0.bottom.equalTo(addNewSightingButton.snp.top).offset(43)
       }
+    }
+    
+    func setupSightingButton() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.colors = [
+          UIColor(red: 0.925, green: 0.737, blue: 0.702, alpha: 1).cgColor,
+          UIColor(red: 0.918, green: 0.655, blue: 0.62, alpha: 1).cgColor
+        ]
+        gradientLayer.locations = [0, 1]
+        gradientLayer.startPoint = CGPoint(x: 0.25, y: 0.5)
+        gradientLayer.endPoint = CGPoint(x: 0.75, y: 0.5)
+        
+        addNewSightingButton.layer.addSublayer(gradientLayer)
+        addNewSightingButton.setImage(UIImage(named: "iconAddSighting"), for: .normal)
+        addNewSightingButton.layer.cornerRadius = 3.0
+        addNewSightingButton.clipsToBounds = true
+        
+        addNewSightingButton.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(23)
+            make.width.equalTo(188)
+            make.height.equalTo(48)
+            make.centerY.equalTo(backgroundImageView.snp.bottom)
+        }
+    }
+    
+    func setupSightingsIcon() {
+        sightingsIcon.image = UIImage(named: "iconCircleFavs")
+    }
+}
+
+//MARK: - DetailsDisplayLogic
+extension FlowerDetailsHeaderView: DetailsDisplayLogic {
+    func displayFlower(_ flower: Flower) {
+        backgroundImageView.kf.setImage(with: URL(string: "http:\(flower.profilePicture)"))
+        titleLabel.text = flower.name
+        subtitleLabel.text = flower.latinName
     }
 }

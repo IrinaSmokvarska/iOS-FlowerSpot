@@ -15,12 +15,19 @@ protocol DetailsDisplayLogic: class {
     func displayError(_ error: RemoteResourceError)
 }
 
+extension DetailsDisplayLogic {
+    func displayFlower(_ flower: Flower){}
+    func displaySightings(_ sightings: [Sighting]){}
+    func displayError(_ error: RemoteResourceError){}
+}
+
 class DetailsViewController: UIViewController {
     var interactor: DetailsBusinessLogic?
     var router: DetailsRoutingLogic?
+    var presenter: DetailsPresentationLogic?
     private lazy var contentView = FlowerDetailsContentView.autolayoutView()
     private let flowerDetailsDataSource = FlowerDetailsDataSource()
-   // let flowerId: Int?
+    var flowerId: Int = 0
     
     init(delegate: DetailsRouterDelegate?) {
         super.init(nibName: nil, bundle: nil)
@@ -49,7 +56,7 @@ class DetailsViewController: UIViewController {
 // MARK: - Display Logic
 extension DetailsViewController: DetailsDisplayLogic {
     func displayFlower(_ flower: Flower) {
-        print("")
+        
     }
     
     func displayError(_ error: RemoteResourceError) {
@@ -103,8 +110,8 @@ private extension DetailsViewController {
   }
   
   func loadData() {
-    interactor?.fetchFlowerDetails(flowerId: 10)
-    interactor?.fetchSightings(flowerId: 2)
+    interactor?.fetchFlowerDetails(flowerId: flowerId)
+    interactor?.fetchSightings(flowerId: flowerId)
   }
   
   @objc func leftBarButtonPressed() {

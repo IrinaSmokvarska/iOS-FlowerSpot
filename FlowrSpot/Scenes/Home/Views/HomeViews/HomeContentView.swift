@@ -11,7 +11,7 @@ import PovioKit
 
 class HomeContentView: UIView {
   let collectionViewDimensions = FlowerCollectionViewItemDimension(numberOfItemsInRow: 2, insets: 8)
-  let headerViewHeight: CGFloat = 255
+  let headerViewMinHeight: CGFloat = 255
   let headerView = HomeHeaderView.autolayoutView()
   let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).autolayoutView()
   let rightBarButton = UIButton(type: .custom)

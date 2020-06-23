@@ -84,6 +84,7 @@
 		CEB1772024A171A000EB7CEF /* SightingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1771F24A171A000EB7CEF /* SightingsRow.swift */; };
 		CEB1772224A171AD00EB7CEF /* SightingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1772124A171AD00EB7CEF /* SightingsSection.swift */; };
 		CEB1772424A1730C00EB7CEF /* SightingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1772324A1730C00EB7CEF /* SightingCell.swift */; };
+		CEB1772624A198DD00EB7CEF /* CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1772524A198DD00EB7CEF /* CLLocation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,6 +185,7 @@
 		CEB1771F24A171A000EB7CEF /* SightingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingsRow.swift; sourceTree = "<group>"; };
 		CEB1772124A171AD00EB7CEF /* SightingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingsSection.swift; sourceTree = "<group>"; };
 		CEB1772324A1730C00EB7CEF /* SightingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingCell.swift; sourceTree = "<group>"; };
+		CEB1772524A198DD00EB7CEF /* CLLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocation.swift; sourceTree = "<group>"; };
 		D7A200E65319AC91FE1C765B /* Pods-FlowrSpot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowrSpot.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlowrSpot/Pods-FlowrSpot.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -321,6 +323,7 @@
 		3787E63B2015CC120080A599 /* Other */ = {
 			isa = PBXGroup;
 			children = (
+				CEB1772524A198DD00EB7CEF /* CLLocation.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -899,6 +902,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				37B4196C200E06C600173B80 /* AppDelegate.swift in Sources */,
+				CEB1772624A198DD00EB7CEF /* CLLocation.swift in Sources */,
 				3787E6412015D1420080A599 /* Constants.swift in Sources */,
 				37603CEA2010975700FB9F78 /* DataSource.swift in Sources */,
 				CEB1771224A132AB00EB7CEF /* DetailsCollectionViewItemDimension.swift in Sources */,

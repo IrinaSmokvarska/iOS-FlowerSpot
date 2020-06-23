@@ -8,6 +8,7 @@
 
 import PovioKit
 import Kingfisher
+import MapKit
 
 class SightingCell: UICollectionViewCell {
     private let imageView = UIImageView.autolayoutView()
@@ -16,13 +17,18 @@ class SightingCell: UICollectionViewCell {
     private let nameLabel = UILabel.autolayoutView()
     private let userLabel = UILabel.autolayoutView()
     private let descriptionLabel = UILabel.autolayoutView()
-    private let likesLabel = UILabel.autolayoutView()
-    private let likesView = UIImageView.autolayoutView()
+    private let favoritesLabel = UILabel.autolayoutView()
+    private let favoritesImageView = UIImageView.autolayoutView()
+    private let favoritesView = UIView.autolayoutView()
     private let commentsLabel = UILabel.autolayoutView()
-    private let commentsView = UIImageView.autolayoutView()
+    private let commentsImageView = UIImageView.autolayoutView()
+    private let commentsView = UIView.autolayoutView()
     private let holderViewFlowerInfo = UIView.autolayoutView()
     private let nameUserHolderView = UIView.autolayoutView()
     private let separatorView = UIView.autolayoutView()
+    private let locationView = UIView.autolayoutView()
+    private let locationImageView = UIImageView.autolayoutView()
+    private let locationLabel = UILabel.autolayoutView()
     
     override init(frame: CGRect) {
       super.init(frame: frame)
@@ -37,6 +43,11 @@ class SightingCell: UICollectionViewCell {
 // MARK: - Public methods
 extension SightingCell {
   func setSighting(_ sighting: Sighting) {
+    profilePictureImageView.layer.masksToBounds = true
+    profilePictureImageView.layer.cornerRadius = 20
+    commentsImageView.image = UIImage(named: "iconChat")
+    favoritesImageView.image = UIImage(named: "iconFavorites")
+    
     nameLabel.text = sighting.name
     nameLabel.font = .custom(type: .regular, size: 15)
     nameLabel.textColor = UIColor.sightingDarkGray
@@ -49,26 +60,50 @@ extension SightingCell {
     descriptionLabel.font = .custom(type: .regular, size: 13)
     descriptionLabel.textColor = UIColor.sightingLightGray
     
-    likesLabel.text = "favorites_count".localized(sighting.likesCount)
+    favoritesLabel.text = "favorites_count".localized(sighting.likesCount)
+    favoritesLabel.font = .custom(type: .regular, size: 12)
+    favoritesLabel.textColor = UIColor.sightingLightGray
+    
     commentsLabel.text = "comments_count".localized(sighting.commentsCount)
-   // sightingsLabel.text = "sightings_count".localized(flower.sightings)
+    commentsLabel.font = .custom(type: .regular, size: 12)
+    commentsLabel.textColor = UIColor.sightingLightGray
     imageView.kf.setImage(with: URL(string: "http:\(sighting.picture)"))
     profilePictureImageView.kf.setImage(with: URL(string: "http:\(sighting.flower.profilePicture)"))
     
     separatorView.backgroundColor = UIColor.separatorGrayColor
+    
+    locationView.backgroundColor = .white
+    locationView.layer.masksToBounds = true
+    locationView.layer.cornerRadius = 12
+    locationView.layer.shadowOpacity = 1
+    locationView.layer.shadowRadius = 30
+    locationView.layer.shadowOffset = CGSize(width: 0, height: 15)
+    locationView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.05).cgColor
+    
+    locationLabel.textColor = UIColor.locationOrange
+    locationLabel.font = .custom(type: .regular, size: 12)
+    let location = CLLocation(latitude: sighting.latitude, longitude: sighting.longitude)
+    location.fetchCityAndCountry { [weak self] city, country, error in
+        guard let city = city, let country = country, error == nil else { return }
+        self?.locationLabel.text = city + ", " + country
+    }
+    
+    locationImageView.image = UIImage(named: "iconLocation")
   }
 }
 
 // MARK: - Private methods
 private extension SightingCell {
   func setupViews() {
-    profilePictureImageView.layer.masksToBounds = true
-    profilePictureImageView.layer.cornerRadius = 20
     setupImageView()
     setupHolderView()
     setupProfilePicture()
     setupFlowerAndUserName()
     setupDescription()
+    setupSeparatorView()
+    setupCommentsView()
+    setupFavoritesView()
+    setupLocationView()
   }
     func setupImageView() {
         addSubview(imageView)
@@ -79,12 +114,42 @@ private extension SightingCell {
         }
     }
     
+    func setupLocationView() {
+        addSubview(locationView)
+        locationView.addSubview(locationImageView)
+        locationView.addSubview(locationLabel)
+        locationView.snp.makeConstraints { (make) in
+            make.left.top.equalToSuperview().offset(20)
+            make.width.equalTo(136)
+            make.height.equalTo(25)
+        }
+        
+        locationImageView.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(10)
+            make.centerY.equalToSuperview()
+            make.width.equalTo(10)
+            make.height.equalTo(13)
+        }
+        
+        locationLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(locationImageView.snp.right).offset(10)
+            make.right.equalToSuperview().offset(-12)
+            make.centerY.equalToSuperview()
+        }
+    }
+    
     func setupHolderView() {
         addSubview(holderViewFlowerInfo)
         holderViewFlowerInfo.addSubview(profilePictureImageView)
         holderViewFlowerInfo.addSubview(descriptionLabel)
         holderViewFlowerInfo.addSubview(nameUserHolderView)
         holderViewFlowerInfo.addSubview(separatorView)
+        holderViewFlowerInfo.addSubview(commentsView)
+        holderViewFlowerInfo.addSubview(favoritesView)
+        commentsView.addSubview(commentsImageView)
+        commentsView.addSubview(commentsLabel)
+        favoritesView.addSubview(favoritesImageView)
+        favoritesView.addSubview(favoritesLabel)
         nameUserHolderView.addSubview(nameLabel)
         nameUserHolderView.addSubview(userLabel)
         
@@ -130,70 +195,44 @@ private extension SightingCell {
     func setupSeparatorView() {
         separatorView.snp.makeConstraints { (make) in
             make.top.equalTo(descriptionLabel.snp.bottom).offset(20)
-            make.left.right.equalToSuperview().offset(26.79)
+            make.left.equalToSuperview().offset(26.79)
+            make.right.equalToSuperview().offset(-26.79)
+            make.height.equalTo(1)
         }
     }
-//  func setupFavoriteButton() {
-//    addSubview(favoriteButton)
-//    favoriteButton.backgroundColor = .white
-//    favoriteButton.layer.cornerRadius = 12
-//    favoriteButton.setImage(#imageLiteral(resourceName: "favoritesIcons"), for: .normal)
-//    favoriteButton.snp.makeConstraints {
-//      $0.top.equalTo(12)
-//      $0.trailing.equalTo(-12)
-//      $0.size.equalTo(24)
-//    }
-//  }
-//
-//  func setupSightingsLabel() {
-//    addSubview(sightingsLabel)
-//    sightingsLabel.font = .custom(type: .regular, size: 10)
-//    sightingsLabel.textColor = .white
-//    sightingsLabel.textAlignment = .center
-//    sightingsLabel.snp.makeConstraints {
-//      $0.bottom.equalTo(-30)
-//      $0.height.equalTo(24)
-//      $0.centerX.equalToSuperview()
-//    }
-//  }
-//
-//  func setupLabelWrapperView() {
-//    addSubview(sightingsLabelWrapperView)
-//    sightingsLabelWrapperView.backgroundColor = .black
-//    sightingsLabelWrapperView.alpha = 0.5
-//    sightingsLabelWrapperView.layer.cornerRadius = 12
-//    sightingsLabelWrapperView.snp.makeConstraints {
-//      $0.center.equalTo(sightingsLabel.snp.center)
-//      $0.height.equalTo(24)
-//      $0.width.equalTo(sightingsLabel.snp.width).offset(25)
-//    }
-//  }
-//
-//  func setupSubtitleLabel() {
-//    addSubview(subtitleLabel)
-//    subtitleLabel.font = .custom(type: .italic, size: 10)
-//    subtitleLabel.textColor = .white
-//    subtitleLabel.textAlignment = .center
-//    subtitleLabel.alpha = 0.7
-//    subtitleLabel.snp.makeConstraints {
-//      $0.leading.equalTo(20)
-//      $0.trailing.equalTo(-20)
-//      $0.bottom.equalTo(sightingsLabelWrapperView.snp.top).offset(-20)
-//      $0.centerX.equalToSuperview()
-//    }
-//  }
-//
-//  func setupTitleLabel() {
-//    addSubview(titleLabel)
-//    titleLabel.font = .custom(type: .regular, size: 20)
-//    titleLabel.textColor = .white
-//    titleLabel.textAlignment = .center
-//    titleLabel.numberOfLines = 2
-//    titleLabel.snp.makeConstraints {
-//      $0.leading.equalTo(12)
-//      $0.trailing.equalTo(-12)
-//      $0.bottom.equalTo(subtitleLabel).inset(15)
-//      $0.centerX.equalToSuperview()
-//    }
-//  }
+    
+    func setupCommentsView() {
+        commentsView.snp.makeConstraints { (make) in
+            make.left.bottom.equalToSuperview()
+            make.top.equalTo(separatorView.snp.bottom)
+            make.width.equalToSuperview().multipliedBy(0.5)
+        }
+        
+        commentsImageView.snp.makeConstraints { (make) in
+            make.left.equalToSuperview().offset(20)
+            make.centerY.equalToSuperview()
+        }
+        
+        commentsLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(commentsImageView.snp.right).offset(25.61)
+            make.centerY.equalToSuperview()
+        }
+    }
+    
+    func setupFavoritesView() {
+        favoritesView.snp.makeConstraints { (make) in
+            make.centerY.equalTo(commentsView)
+            make.left.equalTo(commentsView.snp.right)
+        }
+        
+        favoritesImageView.snp.makeConstraints { (make) in
+            make.left.equalToSuperview()
+            make.centerY.equalToSuperview()
+        }
+        
+        favoritesLabel.snp.makeConstraints { (make) in
+            make.left.equalTo(favoritesImageView.snp.right).offset(25.61)
+            make.centerY.equalToSuperview()
+        }
+    }
 }

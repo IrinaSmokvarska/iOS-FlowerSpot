@@ -22,4 +22,5 @@ extension UIColor {
   static let sightingDarkGray = UIColor(red: 0.2, green: 0.255, blue: 0.267, alpha: 1)
   static let sightingLightGray = UIColor(red: 0.58, green: 0.619, blue: 0.628, alpha: 1)
   static let separatorGrayColor = UIColor(red: 0.91, green: 0.914, blue: 0.929, alpha: 1)
+  static let locationOrange = UIColor(red: 0.875, green: 0.569, blue: 0.525, alpha: 1)
 }

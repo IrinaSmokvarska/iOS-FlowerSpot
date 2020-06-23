@@ -10,7 +10,7 @@ import UIKit
 
 class FlowerDetailsContentView: UIView {
     let collectionViewDimensions = DetailsCollectionViewItemDimension(numberOfItemsInRow: 1, insets: 0)
-    let headerViewHeight: CGFloat = 255
+    let headerViewMinHeight: CGFloat = 351
     let headerView = FlowerDetailsHeaderView.autolayoutView()
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).autolayoutView()
     let rightBarButton = UIButton(type: .custom)
@@ -39,7 +39,7 @@ private extension FlowerDetailsContentView {
     addSubview(collectionView)
     collectionView.backgroundColor = .white
     collectionView.keyboardDismissMode = .onDrag
-    collectionView.contentInset = UIEdgeInsets(top: headerViewHeight, left: 0, bottom: 0, right: 0)
+    collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
     collectionView.register(SightingCell.self)
     if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
       flowLayout.scrollDirection = .vertical
@@ -56,7 +56,7 @@ private extension FlowerDetailsContentView {
     addSubview(headerView)
     headerView.snp.makeConstraints {
       $0.leading.top.trailing.equalToSuperview()
-      $0.height.equalTo(headerViewHeight)
+      $0.height.greaterThanOrEqualTo(headerViewMinHeight)
     }
   }
   
