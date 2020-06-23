@@ -9,6 +9,7 @@
 import UIKit
 
 protocol DetailsRoutingLogic {
+    func navigateToSightingDetails(sighting: Sighting)
     func navigateToAlert(title: String, message: String, handler: (() -> Void)?)
 }
 
@@ -23,9 +24,13 @@ class DetailsRouter {
 
 // MARK: - Routing Logic
 extension DetailsRouter: DetailsRoutingLogic {
-  func navigateToAlert(title: String, message: String, handler: (() -> Void)?) {
-    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-    alert.addAction(UIAlertAction(title: "general_ok".localized(), style: .cancel, handler: { _ in handler?() }))
-    viewController?.present(alert, animated: true, completion: nil)
+    func navigateToSightingDetails(sighting: Sighting) {
+        
+    }
+    
+    func navigateToAlert(title: String, message: String, handler: (() -> Void)?) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "general_ok".localized(), style: .cancel, handler: { _ in handler?() }))
+        viewController?.present(alert, animated: true, completion: nil)
   }
 }

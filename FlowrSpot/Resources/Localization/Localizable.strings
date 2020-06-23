@@ -18,3 +18,5 @@
 "home_search_placeholder" = "Looking for something specific?";
 
 "sightings_count" = "%d sightings";
+"favorites_count" = "%d Favorites";
+"comment_count" = "%d Comments";

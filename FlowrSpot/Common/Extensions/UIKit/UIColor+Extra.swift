@@ -19,4 +19,7 @@ extension UIColor {
 extension UIColor {
   static let flowrGray = UIColor(r: 148, g: 158, b: 160)
   static let flowrPink = UIColor(r: 223, g: 145, b: 134)
+  static let sightingDarkGray = UIColor(red: 0.2, green: 0.255, blue: 0.267, alpha: 1)
+  static let sightingLightGray = UIColor(red: 0.58, green: 0.619, blue: 0.628, alpha: 1)
+  static let separatorGrayColor = UIColor(red: 0.91, green: 0.914, blue: 0.929, alpha: 1)
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 class FlowerDetailsContentView: UIView {
-    let collectionViewDimensions = DetailsCollectionViewItemDimension(numberOfItemsInRow: 2, insets: 8)
+    let collectionViewDimensions = DetailsCollectionViewItemDimension(numberOfItemsInRow: 1, insets: 0)
     let headerViewHeight: CGFloat = 255
     let headerView = FlowerDetailsHeaderView.autolayoutView()
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).autolayoutView()
@@ -40,7 +40,7 @@ private extension FlowerDetailsContentView {
     collectionView.backgroundColor = .white
     collectionView.keyboardDismissMode = .onDrag
     collectionView.contentInset = UIEdgeInsets(top: headerViewHeight, left: 0, bottom: 0, right: 0)
-    collectionView.register(FlowerCollectionViewCell.self)
+    collectionView.register(SightingCell.self)
     if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
       flowLayout.scrollDirection = .vertical
       flowLayout.sectionInset = collectionViewDimensions.sectionInset

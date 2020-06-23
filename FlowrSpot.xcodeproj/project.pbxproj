@@ -81,6 +81,9 @@
 		CEB1771A24A165B600EB7CEF /* SightingsDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1771924A165B600EB7CEF /* SightingsDownloader.swift */; };
 		CEB1771C24A167E300EB7CEF /* SightingContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1771B24A167E300EB7CEF /* SightingContainer.swift */; };
 		CEB1771E24A16AAF00EB7CEF /* GetSightingsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1771D24A16AAF00EB7CEF /* GetSightingsWorker.swift */; };
+		CEB1772024A171A000EB7CEF /* SightingsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1771F24A171A000EB7CEF /* SightingsRow.swift */; };
+		CEB1772224A171AD00EB7CEF /* SightingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1772124A171AD00EB7CEF /* SightingsSection.swift */; };
+		CEB1772424A1730C00EB7CEF /* SightingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1772324A1730C00EB7CEF /* SightingCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -178,6 +181,9 @@
 		CEB1771924A165B600EB7CEF /* SightingsDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingsDownloader.swift; sourceTree = "<group>"; };
 		CEB1771B24A167E300EB7CEF /* SightingContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingContainer.swift; sourceTree = "<group>"; };
 		CEB1771D24A16AAF00EB7CEF /* GetSightingsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSightingsWorker.swift; sourceTree = "<group>"; };
+		CEB1771F24A171A000EB7CEF /* SightingsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingsRow.swift; sourceTree = "<group>"; };
+		CEB1772124A171AD00EB7CEF /* SightingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingsSection.swift; sourceTree = "<group>"; };
+		CEB1772324A1730C00EB7CEF /* SightingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingCell.swift; sourceTree = "<group>"; };
 		D7A200E65319AC91FE1C765B /* Pods-FlowrSpot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowrSpot.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlowrSpot/Pods-FlowrSpot.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -630,6 +636,8 @@
 			isa = PBXGroup;
 			children = (
 				CEB1770924A12CC600EB7CEF /* FlowerDetailsDataSource.swift */,
+				CEB1771F24A171A000EB7CEF /* SightingsRow.swift */,
+				CEB1772124A171AD00EB7CEF /* SightingsSection.swift */,
 			);
 			path = FlowerDetailsDataSource;
 			sourceTree = "<group>";
@@ -649,6 +657,7 @@
 			children = (
 				CEB1770B24A130F400EB7CEF /* FlowerDetailsContentView.swift */,
 				CEB1771324A1347800EB7CEF /* FlowerDetailsHeaderView.swift */,
+				CEB1772324A1730C00EB7CEF /* SightingCell.swift */,
 			);
 			path = FlowerDetailsViews;
 			sourceTree = "<group>";
@@ -931,8 +940,11 @@
 				99EF39B922E7202D001230BD /* SearchView.swift in Sources */,
 				37603CEC2010977100FB9F78 /* SectionType.swift in Sources */,
 				CEB1771824A1603F00EB7CEF /* Sighting.swift in Sources */,
+				CEB1772424A1730C00EB7CEF /* SightingCell.swift in Sources */,
 				CEB1771C24A167E300EB7CEF /* SightingContainer.swift in Sources */,
 				CEB1771A24A165B600EB7CEF /* SightingsDownloader.swift in Sources */,
+				CEB1772024A171A000EB7CEF /* SightingsRow.swift in Sources */,
+				CEB1772224A171AD00EB7CEF /* SightingsSection.swift in Sources */,
 				37DFD33C2011E48D001023ED /* UIColor+Extra.swift in Sources */,
 				37DFD3392011E48D001023ED /* UIFont+Extra.swift in Sources */,
 				3787E6552015D3E90080A599 /* Version.swift in Sources */,

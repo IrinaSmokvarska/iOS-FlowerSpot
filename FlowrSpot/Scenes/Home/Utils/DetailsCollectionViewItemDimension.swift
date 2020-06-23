@@ -11,8 +11,7 @@ import UIKit
 struct DetailsCollectionViewItemDimension: CollectionViewItemDimension {
     let numberOfItemsInRow: Int
     let insets: CGFloat
-    let defaultWidth: CGFloat = 85
-    let defaultHeight: CGFloat = 100
+    let defaultHeight: CGFloat = 439.0
      
      init(numberOfItemsInRow: Int, insets: CGFloat) {
        self.numberOfItemsInRow = numberOfItemsInRow
@@ -34,11 +33,11 @@ extension DetailsCollectionViewItemDimension {
   }
   
   func sizeForItem(at indexPath: IndexPath, for collectionView: UICollectionView) -> CGSize {
-    let aspect = defaultHeight / defaultWidth
+    let aspect = defaultHeight / collectionView.bounds.width
     
     let leftAndRightInset = insets * 2
     let spacing = interItemSpacing * CGFloat(numberOfItemsInRow - 1)
-    let itemWidth = (collectionView.bounds.width - leftAndRightInset - spacing) / CGFloat(numberOfItemsInRow)
+    let itemWidth = (collectionView.bounds.width - leftAndRightInset - spacing)
     
     return CGSize(width: floor(itemWidth), height: floor(itemWidth * aspect))
   }

@@ -29,6 +29,6 @@ extension DetailsPresenter: DetailsPresentationLogic {
     }
     
     func presentSightings(_ sightings: [Sighting]) {
-        
+        viewController?.displaySightings(sightings)
     }
 }

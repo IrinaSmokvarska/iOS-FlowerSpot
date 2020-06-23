@@ -19,7 +19,7 @@ class DetailsViewController: UIViewController {
     var interactor: DetailsBusinessLogic?
     var router: DetailsRoutingLogic?
     private lazy var contentView = FlowerDetailsContentView.autolayoutView()
-  //  private let flowerDataSource = FlowersDataSource()
+    private let flowerDetailsDataSource = FlowerDetailsDataSource()
    // let flowerId: Int?
     
     init(delegate: DetailsRouterDelegate?) {
@@ -58,13 +58,28 @@ extension DetailsViewController: DetailsDisplayLogic {
     }
     
     func displaySightings(_ sightings: [Sighting]) {
-        
+        flowerDetailsDataSource.update(sightings: sightings)
+        contentView.collectionView.reloadData()
+        contentView.emptyView.isHidden = true
     }
 }
 
-// MARK: - UIScrollView Delegate
-extension DetailsViewController: UIScrollViewDelegate {
-
+// MARK: - UICollectionView Delegate
+extension DetailsViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    return contentView.collectionViewDimensions.sizeForItem(at: indexPath, for: collectionView)
+  }
+  
+  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    guard let row = flowerDetailsDataSource.row(at: indexPath) else {
+      Logger.error("No availible row in dataSource at \(indexPath)")
+      return
+    }
+    switch row {
+    case let .sighting(entity):
+      router?.navigateToSightingDetails(sighting: entity)
+    }
+  }
 }
 
 // MARK: - Private methods
@@ -83,8 +98,8 @@ private extension DetailsViewController {
     contentView.leftBarButton.setImage(UIImage(named: "iconBack"), for: .normal)
     
     contentView.leftBarButton.addTarget(self, action: #selector(leftBarButtonPressed), for: .touchUpInside)
-   // contentView.collectionView.delegate = self
-  //  contentView.collectionView.dataSource = flowersDataSource
+    contentView.collectionView.delegate = self
+    contentView.collectionView.dataSource = flowerDetailsDataSource
   }
   
   func loadData() {
