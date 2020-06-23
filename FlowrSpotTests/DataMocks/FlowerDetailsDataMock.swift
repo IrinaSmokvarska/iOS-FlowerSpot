@@ -16,20 +16,20 @@ class FlowersDetailsDataMock {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
   }
   
-  func mockFlowerEntity() -> FlowerDetails {
-    return mockFlowerResponses()
+  func mockSightingEntity() -> [Sighting] {
+    return testMockSightingsResponses()
   }
   
-  func mockFlowerResponses() -> FlowerDetails {
+  func testMockSightingsResponses() -> [Sighting] {
     do {
-      let json = try loadJsonFromFile("flowerdetails")
+      let json = try loadJsonFromFile("sightings")
       let data = try JSONSerialization.data(withJSONObject: json, options: [])
-      let container = try decoder.decode(FlowerDetails.self, from: data)
+      let container = try decoder.decode([Sighting].self, from: data)
       return container
     } catch {
       print(error.localizedDescription)
     }
-    return FlowerDetails()
+    return [Sighting]()
   }
 }
 

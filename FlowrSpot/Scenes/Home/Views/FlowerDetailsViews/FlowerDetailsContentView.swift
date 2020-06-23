@@ -40,12 +40,13 @@ private extension FlowerDetailsContentView {
         collectionView.keyboardDismissMode = .onDrag
         collectionView.register(SightingCell.self)
         collectionView.registerSupplementaryView(FlowerDetailsHeaderView.self, kind: UICollectionView.elementKindSectionHeader)
+        collectionView.bounces = false
+        collectionView.alwaysBounceVertical = false
         if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
           flowLayout.scrollDirection = .vertical
           flowLayout.sectionInset = collectionViewDimensions.sectionInset
           flowLayout.minimumLineSpacing = collectionViewDimensions.lineSpacing
           flowLayout.minimumInteritemSpacing = collectionViewDimensions.interItemSpacing
-          flowLayout.sectionHeadersPinToVisibleBounds = true
         }
         collectionView.snp.makeConstraints {
           $0.edges.equalToSuperview()

@@ -92,6 +92,7 @@
 		CEB1773024A2860500EB7CEF /* flowerdetails.json in Sources */ = {isa = PBXBuildFile; fileRef = CEB1772F24A2860500EB7CEF /* flowerdetails.json */; };
 		CEB1773224A2877600EB7CEF /* FlowerResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1773124A2877600EB7CEF /* FlowerResponseMapper.swift */; };
 		CEB1773424A2881300EB7CEF /* FlowerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1773324A2881300EB7CEF /* FlowerResponse.swift */; };
+		CEB1773624A29C6400EB7CEF /* sightings.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB1773524A29C6400EB7CEF /* sightings.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -200,6 +201,7 @@
 		CEB1772F24A2860500EB7CEF /* flowerdetails.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = flowerdetails.json; sourceTree = "<group>"; };
 		CEB1773124A2877600EB7CEF /* FlowerResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerResponseMapper.swift; sourceTree = "<group>"; };
 		CEB1773324A2881300EB7CEF /* FlowerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerResponse.swift; sourceTree = "<group>"; };
+		CEB1773524A29C6400EB7CEF /* sightings.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = sightings.json; sourceTree = "<group>"; };
 		D7A200E65319AC91FE1C765B /* Pods-FlowrSpot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowrSpot.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlowrSpot/Pods-FlowrSpot.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -228,6 +230,7 @@
 			children = (
 				CEB1772F24A2860500EB7CEF /* flowerdetails.json */,
 				372E5A842019DCD7002839CC /* flowers.json */,
+				CEB1773524A29C6400EB7CEF /* sightings.json */,
 			);
 			path = json;
 			sourceTree = "<group>";
@@ -258,8 +261,8 @@
 			children = (
 				372E5A832019DCC3002839CC /* json */,
 				CEB1772B24A2852600EB7CEF /* FlowerDetailsDataMock.swift */,
-				CEB1773324A2881300EB7CEF /* FlowerResponse.swift */,
 				3743C29C2016234F00453B90 /* FlowersDataMock.swift */,
+				CEB1773324A2881300EB7CEF /* FlowerResponse.swift */,
 			);
 			path = DataMocks;
 			sourceTree = "<group>";
@@ -801,6 +804,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB1773624A29C6400EB7CEF /* sightings.json in Resources */,
 				372E5A862019E164002839CC /* flowers.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
