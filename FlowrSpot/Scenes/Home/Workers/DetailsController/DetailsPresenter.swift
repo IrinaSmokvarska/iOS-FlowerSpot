@@ -16,7 +16,6 @@ protocol DetailsPresentationLogic {
 
 class DetailsPresenter {
   weak var viewController: DetailsDisplayLogic?
-    
 }
 
 // MARK: - Presentation Logic

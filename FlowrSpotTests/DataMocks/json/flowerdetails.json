@@ -1,0 +1,17 @@
+
+{
+    "flower": {
+        "id": 1,
+        "name": "Goosefoot Violet",
+        "latin_name": "Viola purpurea",
+        "sightings": 3,
+        "profile_picture": "//flowrspot.s3.amazonaws.com/flowers/profile_pictures/000/000/001/medium/viola.jpg?1505132614",
+        "favorite": false,
+        "features": [
+            "Bloom Colors: yellow",
+            "Plant Height: to 4 in.",
+            "Bloom Period: April to June"
+        ],
+        "description": "Deep lemon flowers have violet veins on the lower petals. The side petals are bearded and may have purplish undersides. Grows in dry soils from mid to high elevations. Leaves are green but may be tinged purple."
+    }
+}

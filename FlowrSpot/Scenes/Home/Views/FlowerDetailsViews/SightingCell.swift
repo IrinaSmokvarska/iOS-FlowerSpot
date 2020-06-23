@@ -42,54 +42,72 @@ class SightingCell: UICollectionViewCell {
 
 // MARK: - Public methods
 extension SightingCell {
-  func setSighting(_ sighting: Sighting) {
-    profilePictureImageView.layer.masksToBounds = true
-    profilePictureImageView.layer.cornerRadius = 20
-    commentsImageView.image = UIImage(named: "iconChat")
-    favoritesImageView.image = UIImage(named: "iconFavorites")
-    
-    nameLabel.text = sighting.name
-    nameLabel.font = .custom(type: .regular, size: 15)
-    nameLabel.textColor = UIColor.sightingDarkGray
-    
-    userLabel.text = sighting.user.fullName
-    userLabel.font = .custom(type: .italic, size: 12)
-    userLabel.textColor = UIColor.sightingLightGray
-    
-    descriptionLabel.text = sighting.description
-    descriptionLabel.font = .custom(type: .regular, size: 13)
-    descriptionLabel.textColor = UIColor.sightingLightGray
-    
-    favoritesLabel.text = "favorites_count".localized(sighting.likesCount)
-    favoritesLabel.font = .custom(type: .regular, size: 12)
-    favoritesLabel.textColor = UIColor.sightingLightGray
-    
-    commentsLabel.text = "comments_count".localized(sighting.commentsCount)
-    commentsLabel.font = .custom(type: .regular, size: 12)
-    commentsLabel.textColor = UIColor.sightingLightGray
-    imageView.kf.setImage(with: URL(string: "http:\(sighting.picture)"))
-    profilePictureImageView.kf.setImage(with: URL(string: "http:\(sighting.flower.profilePicture)"))
-    
-    separatorView.backgroundColor = UIColor.separatorGrayColor
-    
-    locationView.backgroundColor = .white
-    locationView.layer.masksToBounds = true
-    locationView.layer.cornerRadius = 12
-    locationView.layer.shadowOpacity = 1
-    locationView.layer.shadowRadius = 30
-    locationView.layer.shadowOffset = CGSize(width: 0, height: 15)
-    locationView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.05).cgColor
-    
-    locationLabel.textColor = UIColor.locationOrange
-    locationLabel.font = .custom(type: .regular, size: 12)
-    let location = CLLocation(latitude: sighting.latitude, longitude: sighting.longitude)
-    location.fetchCityAndCountry { [weak self] city, country, error in
-        guard let city = city, let country = country, error == nil else { return }
-        self?.locationLabel.text = city + ", " + country
+    private func setupNameLabel(sighting: Sighting) {
+        nameLabel.text = sighting.name
+        nameLabel.font = .custom(type: .regular, size: 15)
+        nameLabel.textColor = UIColor.sightingDarkGray
     }
     
-    locationImageView.image = UIImage(named: "iconLocation")
-  }
+    private func setupUserNameLabel(sighting: Sighting) {
+        userLabel.text = sighting.user.fullName
+        userLabel.font = .custom(type: .italic, size: 12)
+        userLabel.textColor = UIColor.sightingLightGray
+    }
+    
+    private func setupDescriptionLabel(sighting: Sighting) {
+        descriptionLabel.text = sighting.description
+        descriptionLabel.font = .custom(type: .regular, size: 13)
+        descriptionLabel.textColor = UIColor.sightingLightGray
+    }
+    
+    private func setupFavoritesLabel(sighting: Sighting) {
+        favoritesLabel.text = "favorites_count".localized(sighting.likesCount)
+        favoritesLabel.font = .custom(type: .regular, size: 12)
+        favoritesLabel.textColor = UIColor.sightingLightGray
+    }
+    
+    private func setupCommentsLabel(sighting: Sighting) {
+        commentsLabel.text = "comments_count".localized(sighting.commentsCount)
+        commentsLabel.font = .custom(type: .regular, size: 12)
+        commentsLabel.textColor = UIColor.sightingLightGray
+    }
+    
+    private func setupLocation(sighting: Sighting) {
+        locationView.backgroundColor = .white
+        locationView.layer.masksToBounds = true
+        locationView.layer.cornerRadius = 12
+        locationView.layer.shadowOpacity = 1
+        locationView.layer.shadowRadius = 30
+        locationView.layer.shadowOffset = CGSize(width: 0, height: 15)
+        locationView.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.05).cgColor
+        
+        locationLabel.textColor = UIColor.locationOrange
+        locationLabel.font = .custom(type: .regular, size: 12)
+        let location = CLLocation(latitude: sighting.latitude, longitude: sighting.longitude)
+        location.fetchCityAndCountry { [weak self] city, country, error in
+            guard let city = city, let country = country, error == nil else { return }
+            self?.locationLabel.text = city + ", " + country
+        }
+        
+        locationImageView.image = UIImage(named: "iconLocation")
+    }
+    
+    func setSighting(_ sighting: Sighting) {
+        profilePictureImageView.layer.masksToBounds = true
+        profilePictureImageView.layer.cornerRadius = 20
+        commentsImageView.image = UIImage(named: "iconChat")
+        favoritesImageView.image = UIImage(named: "iconFavorites")
+        setupNameLabel(sighting: sighting)
+        setupUserNameLabel(sighting: sighting)
+        setupDescriptionLabel(sighting: sighting)
+        setupFavoritesLabel(sighting: sighting)
+        setupCommentsLabel(sighting: sighting)
+        setupLocation(sighting: sighting)
+        
+        imageView.kf.setImage(with: URL(string: "http:\(sighting.picture)"))
+        profilePictureImageView.kf.setImage(with: URL(string: "http:\(sighting.flower.profilePicture)"))
+        separatorView.backgroundColor = UIColor.separatorGrayColor
+    }
 }
 
 // MARK: - Private methods

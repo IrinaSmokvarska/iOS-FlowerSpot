@@ -10,9 +10,10 @@ import UIKit
 
 class FlowerDetailsContentView: UIView {
     let collectionViewDimensions = DetailsCollectionViewItemDimension(numberOfItemsInRow: 1, insets: 0)
-    let headerViewMinHeight: CGFloat = 351
+    var headerViewMinHeight: CGFloat = 370
     let headerView = FlowerDetailsHeaderView.autolayoutView()
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout()).autolayoutView()
+    let scrollView = UIScrollView().autolayoutView()
     let rightBarButton = UIButton(type: .custom)
     let leftBarButton = UIButton(type: .custom)
     let emptyView = EmptyView.autolayoutView()
@@ -28,44 +29,27 @@ class FlowerDetailsContentView: UIView {
 }
 
 private extension FlowerDetailsContentView {
-  func setupViews() {
-    backgroundColor = .white
-    setupCollectionView()
-    setupHeaderView()
-    setupEmptyView()
-  }
-  
-  func setupCollectionView() {
-    addSubview(collectionView)
-    collectionView.backgroundColor = .white
-    collectionView.keyboardDismissMode = .onDrag
-    collectionView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-    collectionView.register(SightingCell.self)
-    if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
-      flowLayout.scrollDirection = .vertical
-      flowLayout.sectionInset = collectionViewDimensions.sectionInset
-      flowLayout.minimumLineSpacing = collectionViewDimensions.lineSpacing
-      flowLayout.minimumInteritemSpacing = collectionViewDimensions.interItemSpacing
+    func setupViews() {
+        backgroundColor = .white
+        setupCollectionView()
     }
-    collectionView.snp.makeConstraints {
-      $0.edges.equalToSuperview()
+    
+    func setupCollectionView() {
+        addSubview(collectionView)
+        collectionView.backgroundColor = .white
+        collectionView.keyboardDismissMode = .onDrag
+        collectionView.register(SightingCell.self)
+        collectionView.registerSupplementaryView(FlowerDetailsHeaderView.self, kind: UICollectionView.elementKindSectionHeader)
+        if let flowLayout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+          flowLayout.scrollDirection = .vertical
+          flowLayout.sectionInset = collectionViewDimensions.sectionInset
+          flowLayout.minimumLineSpacing = collectionViewDimensions.lineSpacing
+          flowLayout.minimumInteritemSpacing = collectionViewDimensions.interItemSpacing
+          flowLayout.sectionHeadersPinToVisibleBounds = true
+        }
+        collectionView.snp.makeConstraints {
+          $0.edges.equalToSuperview()
+        }
     }
-  }
-  
-  func setupHeaderView() {
-    addSubview(headerView)
-    headerView.snp.makeConstraints {
-      $0.leading.top.trailing.equalToSuperview()
-      $0.height.greaterThanOrEqualTo(headerViewMinHeight)
-    }
-  }
-  
-  func setupEmptyView() {
-    addSubview(emptyView)
-    emptyView.text = "placeholder_no_content".localized()
-    emptyView.snp.makeConstraints {
-      $0.top.equalTo(headerView.snp.bottom)
-      $0.leading.trailing.bottom.equalToSuperview()
-    }
-  }
 }
+

@@ -27,6 +27,7 @@ extension HomeRouter: HomeRoutingLogic {
   func navigateToFlowerDetails(flower: Flower) {
     let detailsViewController = DetailsViewController(delegate: nil)
     detailsViewController.flowerId = flower.id
+    detailsViewController.hidesBottomBarWhenPushed = true
     viewController?.navigationController?.pushViewController(detailsViewController, animated: true)
   }
   

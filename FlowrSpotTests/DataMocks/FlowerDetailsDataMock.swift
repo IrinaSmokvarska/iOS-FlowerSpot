@@ -1,40 +1,40 @@
 //
-//  File.swift
+//  FlowerDetailsDataMock.swift
 //  FlowrSpotTests
 //
-//  Created by TK on 22/01/2018.
-//  Copyright © 2018 PovioLabs. All rights reserved.
+//  Created by Irina Smokvarska on 6/23/20.
+//  Copyright © 2020 PovioLabs. All rights reserved.
 //
 
-import Foundation
+import XCTest
 @testable import FlowrSpot
 
-class FlowersDataMock {
+class FlowersDetailsDataMock {
   let decoder = JSONDecoder()
   
   init() {
     decoder.keyDecodingStrategy = .convertFromSnakeCase
   }
   
-  func mockFlowerEntities() -> [Flower] {
-    return FlowerResponseMapper.map(response: mockFlowerResponses())
+  func mockFlowerEntity() -> FlowerDetails {
+    return mockFlowerResponses()
   }
   
-  func mockFlowerResponses() -> [FlowerResponse] {
+  func mockFlowerResponses() -> FlowerDetails {
     do {
-      let json = try laodJsonFromFile("flowers")
+      let json = try loadJsonFromFile("flowerdetails")
       let data = try JSONSerialization.data(withJSONObject: json, options: [])
-      let container = try decoder.decode(FlowerResponse.self, from: data)
-      return container.flowers
+      let container = try decoder.decode(FlowerDetails.self, from: data)
+      return container
     } catch {
       print(error.localizedDescription)
     }
-    return []
+    return FlowerDetails()
   }
 }
 
-private extension FlowersDataMock {
-  func laodJsonFromFile(_ file: String) throws -> Any {
+private extension FlowersDetailsDataMock {
+  func loadJsonFromFile(_ file: String) throws -> Any {
     guard let path = Bundle(for: type(of: self)).path(forResource: file, ofType: "json") else { throw RemoteResourceError.generic }
     
     let data = try Data(contentsOf: URL(fileURLWithPath: path), options: .mappedIfSafe)

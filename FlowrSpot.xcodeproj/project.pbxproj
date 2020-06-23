@@ -85,6 +85,13 @@
 		CEB1772224A171AD00EB7CEF /* SightingsSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1772124A171AD00EB7CEF /* SightingsSection.swift */; };
 		CEB1772424A1730C00EB7CEF /* SightingCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1772324A1730C00EB7CEF /* SightingCell.swift */; };
 		CEB1772624A198DD00EB7CEF /* CLLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1772524A198DD00EB7CEF /* CLLocation.swift */; };
+		CEB1772824A25E6F00EB7CEF /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1772724A25E6F00EB7CEF /* String.swift */; };
+		CEB1772A24A2849F00EB7CEF /* FlowersDetailsDataSourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1772924A2849F00EB7CEF /* FlowersDetailsDataSourceTests.swift */; };
+		CEB1772C24A2852600EB7CEF /* FlowerDetailsDataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1772B24A2852600EB7CEF /* FlowerDetailsDataMock.swift */; };
+		CEB1772E24A2854500EB7CEF /* FlowerDetailsDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1772D24A2854500EB7CEF /* FlowerDetailsDownloaderTests.swift */; };
+		CEB1773024A2860500EB7CEF /* flowerdetails.json in Sources */ = {isa = PBXBuildFile; fileRef = CEB1772F24A2860500EB7CEF /* flowerdetails.json */; };
+		CEB1773224A2877600EB7CEF /* FlowerResponseMapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1773124A2877600EB7CEF /* FlowerResponseMapper.swift */; };
+		CEB1773424A2881300EB7CEF /* FlowerResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB1773324A2881300EB7CEF /* FlowerResponse.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -186,6 +193,13 @@
 		CEB1772124A171AD00EB7CEF /* SightingsSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingsSection.swift; sourceTree = "<group>"; };
 		CEB1772324A1730C00EB7CEF /* SightingCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SightingCell.swift; sourceTree = "<group>"; };
 		CEB1772524A198DD00EB7CEF /* CLLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocation.swift; sourceTree = "<group>"; };
+		CEB1772724A25E6F00EB7CEF /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		CEB1772924A2849F00EB7CEF /* FlowersDetailsDataSourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowersDetailsDataSourceTests.swift; sourceTree = "<group>"; };
+		CEB1772B24A2852600EB7CEF /* FlowerDetailsDataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerDetailsDataMock.swift; sourceTree = "<group>"; };
+		CEB1772D24A2854500EB7CEF /* FlowerDetailsDownloaderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerDetailsDownloaderTests.swift; sourceTree = "<group>"; };
+		CEB1772F24A2860500EB7CEF /* flowerdetails.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = flowerdetails.json; sourceTree = "<group>"; };
+		CEB1773124A2877600EB7CEF /* FlowerResponseMapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerResponseMapper.swift; sourceTree = "<group>"; };
+		CEB1773324A2881300EB7CEF /* FlowerResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerResponse.swift; sourceTree = "<group>"; };
 		D7A200E65319AC91FE1C765B /* Pods-FlowrSpot.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlowrSpot.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlowrSpot/Pods-FlowrSpot.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,6 +226,7 @@
 		372E5A832019DCC3002839CC /* json */ = {
 			isa = PBXGroup;
 			children = (
+				CEB1772F24A2860500EB7CEF /* flowerdetails.json */,
 				372E5A842019DCD7002839CC /* flowers.json */,
 			);
 			path = json;
@@ -242,6 +257,8 @@
 			isa = PBXGroup;
 			children = (
 				372E5A832019DCC3002839CC /* json */,
+				CEB1772B24A2852600EB7CEF /* FlowerDetailsDataMock.swift */,
+				CEB1773324A2881300EB7CEF /* FlowerResponse.swift */,
 				3743C29C2016234F00453B90 /* FlowersDataMock.swift */,
 			);
 			path = DataMocks;
@@ -324,6 +341,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB1772524A198DD00EB7CEF /* CLLocation.swift */,
+				CEB1772724A25E6F00EB7CEF /* String.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -339,9 +357,7 @@
 		3787E6462015D3E90080A599 /* Responses */ = {
 			isa = PBXGroup;
 			children = (
-				3787E6482015D3E90080A599 /* Flower.swift */,
 				370F3B8621CB9FFC00C53C85 /* FlowersContainer.swift */,
-				CEB1771724A1603F00EB7CEF /* Sighting.swift */,
 				CEB1771B24A167E300EB7CEF /* SightingContainer.swift */,
 			);
 			path = Responses;
@@ -513,6 +529,7 @@
 		99DC55B020160E0800E314D1 /* Downloaders */ = {
 			isa = PBXGroup;
 			children = (
+				CEB1772D24A2854500EB7CEF /* FlowerDetailsDownloaderTests.swift */,
 				99DC55B120160E1600E314D1 /* FlowersDownloaderTests.swift */,
 			);
 			path = Downloaders;
@@ -522,6 +539,7 @@
 			isa = PBXGroup;
 			children = (
 				3743C2992016232F00453B90 /* FlowersDataSourceTests.swift */,
+				CEB1772924A2849F00EB7CEF /* FlowersDetailsDataSourceTests.swift */,
 			);
 			path = DataSources;
 			sourceTree = "<group>";
@@ -539,6 +557,7 @@
 		99DC55B52016108900E314D1 /* Mappers */ = {
 			isa = PBXGroup;
 			children = (
+				CEB1773124A2877600EB7CEF /* FlowerResponseMapper.swift */,
 				3743C29E2016256200453B90 /* FlowersMapperTests.swift */,
 			);
 			path = Mappers;
@@ -586,6 +605,8 @@
 		99EF39BB22E72301001230BD /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3787E6482015D3E90080A599 /* Flower.swift */,
+				CEB1771724A1603F00EB7CEF /* Sighting.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -949,6 +970,7 @@
 				CEB1771A24A165B600EB7CEF /* SightingsDownloader.swift in Sources */,
 				CEB1772024A171A000EB7CEF /* SightingsRow.swift in Sources */,
 				CEB1772224A171AD00EB7CEF /* SightingsSection.swift in Sources */,
+				CEB1772824A25E6F00EB7CEF /* String.swift in Sources */,
 				37DFD33C2011E48D001023ED /* UIColor+Extra.swift in Sources */,
 				37DFD3392011E48D001023ED /* UIFont+Extra.swift in Sources */,
 				3787E6552015D3E90080A599 /* Version.swift in Sources */,
@@ -960,8 +982,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3743C2922016204F00453B90 /* ArrayTests.swift in Sources */,
+				CEB1773024A2860500EB7CEF /* flowerdetails.json in Sources */,
+				CEB1772C24A2852600EB7CEF /* FlowerDetailsDataMock.swift in Sources */,
+				CEB1772E24A2854500EB7CEF /* FlowerDetailsDownloaderTests.swift in Sources */,
+				CEB1773424A2881300EB7CEF /* FlowerResponse.swift in Sources */,
+				CEB1773224A2877600EB7CEF /* FlowerResponseMapper.swift in Sources */,
 				3743C29D2016234F00453B90 /* FlowersDataMock.swift in Sources */,
 				372E5A882019E5DF002839CC /* FlowersDataSourceTests.swift in Sources */,
+				CEB1772A24A2849F00EB7CEF /* FlowersDetailsDataSourceTests.swift in Sources */,
 				99DC55B220160E1600E314D1 /* FlowersDownloaderTests.swift in Sources */,
 				3743C29F2016256200453B90 /* FlowersMapperTests.swift in Sources */,
 				3743C2962016224000453B90 /* UIFontTests.swift in Sources */,

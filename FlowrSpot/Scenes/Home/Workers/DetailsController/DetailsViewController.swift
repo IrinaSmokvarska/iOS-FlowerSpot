@@ -16,9 +16,9 @@ protocol DetailsDisplayLogic: class {
 }
 
 extension DetailsDisplayLogic {
-    func displayFlower(_ flower: Flower){}
-    func displaySightings(_ sightings: [Sighting]){}
-    func displayError(_ error: RemoteResourceError){}
+    func displayFlower(_ flower: Flower){ }
+    func displaySightings(_ sightings: [Sighting]){ }
+    func displayError(_ error: RemoteResourceError){ }
 }
 
 class DetailsViewController: UIViewController {
@@ -28,6 +28,7 @@ class DetailsViewController: UIViewController {
     private lazy var contentView = FlowerDetailsContentView.autolayoutView()
     private let flowerDetailsDataSource = FlowerDetailsDataSource()
     var flowerId: Int = 0
+    var valueForHeight: CGFloat = 0.0
     
     init(delegate: DetailsRouterDelegate?) {
         super.init(nibName: nil, bundle: nil)
@@ -56,7 +57,12 @@ class DetailsViewController: UIViewController {
 // MARK: - Display Logic
 extension DetailsViewController: DetailsDisplayLogic {
     func displayFlower(_ flower: Flower) {
+        let sizeToAddDesc = flower.description?.height(withConstrainedWidth: contentView.bounds.width-46, font: .custom(type: .regular, size: 13.0))
+        let sizeToAddFeatures = flower.features?.joined(separator: "\n\n").height(withConstrainedWidth: 145, font: .custom(type: .bold, size: 13.0))
+        let spaceToAdd = (sizeToAddDesc ?? 0.0) + 68.0 + (sizeToAddFeatures ?? 0.0)
+        valueForHeight = contentView.headerViewMinHeight + spaceToAdd
         
+        flowerDetailsDataSource.update(flowerDetails: flower)
     }
     
     func displayError(_ error: RemoteResourceError) {
@@ -68,25 +74,30 @@ extension DetailsViewController: DetailsDisplayLogic {
         flowerDetailsDataSource.update(sightings: sightings)
         contentView.collectionView.reloadData()
         contentView.emptyView.isHidden = true
+        contentView.headerView.displaySightings(sightings)
     }
 }
 
 // MARK: - UICollectionView Delegate
 extension DetailsViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-  func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-    return contentView.collectionViewDimensions.sizeForItem(at: indexPath, for: collectionView)
-  }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return contentView.collectionViewDimensions.sizeForItem(at: indexPath, for: collectionView)
+    }
   
-  func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    guard let row = flowerDetailsDataSource.row(at: indexPath) else {
-      Logger.error("No availible row in dataSource at \(indexPath)")
-      return
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let row = flowerDetailsDataSource.row(at: indexPath) else {
+          Logger.error("No availible row in dataSource at \(indexPath)")
+          return
+        }
+        switch row {
+        case let .sighting(entity):
+          router?.navigateToSightingDetails(sighting: entity)
+        }
     }
-    switch row {
-    case let .sighting(entity):
-      router?.navigateToSightingDetails(sighting: entity)
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: contentView.bounds.width, height: valueForHeight + 50)
     }
-  }
 }
 
 // MARK: - Private methods
